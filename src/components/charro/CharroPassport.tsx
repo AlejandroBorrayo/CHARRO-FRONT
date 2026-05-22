@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { useEffect, useMemo, useState } from "react";
 import { signOut, useSession } from "next-auth/react";
 import { CharroCommunityInvite } from "@/components/charro/CharroCommunityInvite";
+import { LOGIN_PATH } from "@/lib/authRouting";
 import { CharroOnboardingShell } from "@/components/charro/CharroOnboardingShell";
 import { CharroFormMessage } from "@/components/charro/CharroFormMessage";
 import { getUser } from "@/services/user";
@@ -111,7 +112,7 @@ export function CharroPassport() {
 
   const handleSignOut = async () => {
     setSigningOut(true);
-    await signOut({ callbackUrl: "/auth/iniciar-sesion" });
+    await signOut({ callbackUrl: LOGIN_PATH });
   };
 
   return (

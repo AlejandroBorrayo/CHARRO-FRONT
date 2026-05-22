@@ -1,3 +1,5 @@
+export const LOGIN_PATH = "/";
+export const REGISTRO_PATH = "/registro";
 export const CUENTA_BIENVENIDA = "/cuenta/bienvenida";
 export const CUENTA_PASAPORTE = "/cuenta/pasaporte";
 

@@ -1,12 +1,21 @@
 import type { Metadata } from "next";
-import { RegisterForm } from "@/components/charro/RegisterForm";
+import { redirect } from "next/navigation";
+import { getServerSession } from "next-auth/next";
+import { LoginForm } from "@/components/charro/LoginForm";
+import { authOptions } from "@/lib/authOptions";
+import { getPostLoginPath } from "@/lib/authRouting";
 
 export const metadata: Metadata = {
-  title: "Registro",
+  title: "Iniciar sesión",
   description:
-    "Únete a la comunidad de El Charro González y celebra la riqueza de la cultura mexicana.",
+    "Inicia sesión en la comunidad de El Charro González y celebra la riqueza de la cultura mexicana.",
 };
 
-export default function HomePage() {
-  return <RegisterForm />;
+export default async function HomePage() {
+  const session = await getServerSession(authOptions);
+  if (session) {
+    redirect(getPostLoginPath(session.user.loggin_first_time));
+  }
+
+  return <LoginForm />;
 }

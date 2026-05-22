@@ -4,6 +4,7 @@ import { getAuthSecret } from "@/lib/authSecret";
 import {
   CUENTA_BIENVENIDA,
   CUENTA_PASAPORTE,
+  LOGIN_PATH,
   needsWelcome,
 } from "@/lib/authRouting";
 
@@ -39,7 +40,7 @@ export default withAuth(
   {
     secret: getAuthSecret(),
     pages: {
-      signIn: "/auth/iniciar-sesion",
+      signIn: LOGIN_PATH,
     },
   }
 );

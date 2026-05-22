@@ -2,7 +2,7 @@ import type { NextAuthOptions } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import { jwtDecode } from "jwt-decode";
 import { getAuthSecret } from "@/lib/authSecret";
-import { extractLogginFirstTime } from "@/lib/authRouting";
+import { extractLogginFirstTime, LOGIN_PATH } from "@/lib/authRouting";
 import { login } from "@/services/auth";
 
 type AccessTokenPayload = {
@@ -52,7 +52,7 @@ export const authOptions: NextAuthOptions = {
   ],
   session: { strategy: "jwt" },
   pages: {
-    signIn: "/auth/iniciar-sesion",
+    signIn: LOGIN_PATH,
   },
   callbacks: {
     async jwt({ token, user }) {

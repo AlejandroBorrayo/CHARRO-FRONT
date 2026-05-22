@@ -1,18 +1,10 @@
-import { authOptions } from "@/lib/authOptions";
-import { getPostLoginPath } from "@/lib/authRouting";
 import { redirect } from "next/navigation";
-import { getServerSession } from "next-auth/next";
-import type { ReactNode } from "react";
+import { LOGIN_PATH } from "@/lib/authRouting";
 
-export default async function IniciarSesionLayout({
+export default function IniciarSesionLayout({
   children,
 }: {
-  children: ReactNode;
+  children: React.ReactNode;
 }) {
-  const session = await getServerSession(authOptions);
-  if (session) {
-    redirect(getPostLoginPath(session.user.loggin_first_time));
-  }
-
-  return children;
+  redirect(LOGIN_PATH);
 }

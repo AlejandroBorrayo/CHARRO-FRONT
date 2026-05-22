@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import { getSession, signIn } from "next-auth/react";
-import { getPostLoginPath } from "@/lib/authRouting";
+import { getPostLoginPath, REGISTRO_PATH } from "@/lib/authRouting";
 import { CharroAuthShell } from "@/components/charro/CharroAuthShell";
 import { CharroField } from "@/components/charro/CharroField";
 import { CharroFormMessage } from "@/components/charro/CharroFormMessage";
@@ -73,7 +73,7 @@ export function LoginForm() {
       footer={
         <p className="text-sm text-[var(--charro-muted)]">
           ¿Aún no tienes cuenta?{" "}
-          <Link href="/" className="btn-charro-outline !inline py-1">
+          <Link href={REGISTRO_PATH} className="btn-charro-outline !inline py-1">
             Crear cuenta
           </Link>
         </p>

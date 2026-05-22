@@ -47,7 +47,7 @@ export default function ResetPasswordPage() {
       setSuccess(true);
       // Redirigir a login después de unos segundos
       setTimeout(() => {
-        router.push("/auth/iniciar-sesion");
+        router.push("/");
         setLoading(false);
       }, 2500);
     } catch (err) {
@@ -67,7 +67,7 @@ export default function ResetPasswordPage() {
       {/* Lado izquierdo con logo */}
       <div
         className="w-full md:w-1/4 bg-brand flex justify-center items-center py-8 cursor-pointer"
-        onClick={() => router.push("/auth/iniciar-sesion")}
+        onClick={() => router.push("/")}
       >
         <Image
           src="https://i.postimg.cc/tRx2S91P/Captura-de-pantalla-2025-12-05-a-la(s)-3-46-29-p-m.png"
@@ -151,7 +151,7 @@ export default function ResetPasswordPage() {
           <div className="mt-6 text-center">
             <button
               type="button"
-              onClick={() => router.push("/auth/iniciar-sesion")}
+              onClick={() => router.push("/")}
               className="text-brand text-sm hover:underline font-medium transition-all"
             >
               Volver al inicio de sesión

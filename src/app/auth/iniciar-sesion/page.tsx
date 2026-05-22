@@ -1,5 +1,6 @@
-import { LoginForm } from "@/components/charro/LoginForm";
+import { redirect } from "next/navigation";
+import { LOGIN_PATH } from "@/lib/authRouting";
 
-export default function LoginPage() {
-  return <LoginForm />;
+export default function IniciarSesionPage() {
+  redirect(LOGIN_PATH);
 }

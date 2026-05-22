@@ -14,6 +14,7 @@ import {
   normalizeWhatsApp,
   WHATSAPP_DIGITS,
 } from "@/components/charro/charro-form-utils";
+import { LOGIN_PATH } from "@/lib/authRouting";
 import { mapRegisterFormToPayload } from "@/lib/mapRegisterPayload";
 import { getApiErrorMessage, registerCharro } from "@/services/auth";
 import type { CharroRegisterForm } from "@/type/register.interface";
@@ -125,7 +126,7 @@ export function RegisterForm() {
     try {
       await registerCharro(mapRegisterFormToPayload(form, confirmPassword));
       setSuccess(true);
-      setTimeout(() => router.push("/auth/iniciar-sesion"), 1500);
+      setTimeout(() => router.push(LOGIN_PATH), 1500);
     } catch (err) {
       setError(
         getApiErrorMessage(
@@ -145,10 +146,7 @@ export function RegisterForm() {
       footer={
         <p className="text-sm text-[var(--charro-muted)]">
           ¿Ya tienes cuenta?{" "}
-          <Link
-            href="/auth/iniciar-sesion"
-            className="btn-charro-outline !inline py-1"
-          >
+          <Link href={LOGIN_PATH} className="btn-charro-outline !inline py-1">
             Iniciar sesión
           </Link>
         </p>
