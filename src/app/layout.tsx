@@ -27,7 +27,10 @@ export const metadata: Metadata = {
   },
   description:
     "Descubre la esencia de México con El Charro González. Únete a la comunidad y celebra la vida.",
-  icons: { icon: "/favicon.ico" },
+  icons: {
+    icon: "/images/el-charro-gonzalez-logo.png",
+    apple: "/images/el-charro-gonzalez-logo.png",
+  },
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {

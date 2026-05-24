@@ -1,8 +1,8 @@
 "use client";
 
-import Link from "next/link";
 import { motion } from "framer-motion";
 import type { ReactNode } from "react";
+import { CharroLogo } from "@/components/charro/CharroLogo";
 
 type CharroOnboardingShellProps = {
   eyebrow?: string;
@@ -42,10 +42,7 @@ export function CharroOnboardingShell({
           transition={{ duration: 0.45 }}
           className={headerClass}
         >
-          <Link href="/" className="inline-block">
-            <p className="charro-auth__eyebrow">Soy El Charro Mexican</p>
-            <h1 className="charro-auth__brand">El Charro González</h1>
-          </Link>
+          <CharroLogo priority />
           <div className="charro-auth__divider mx-auto mt-4" />
           <p className="charro-auth__eyebrow mt-6">{eyebrow}</p>
           <h2 className="charro-auth__title mt-2 text-2xl sm:text-3xl">{title}</h2>

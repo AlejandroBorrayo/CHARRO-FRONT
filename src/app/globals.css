@@ -196,6 +196,28 @@ select:focus {
   line-height: 1.15;
 }
 
+.charro-logo {
+  display: block;
+  width: clamp(6.5rem, 16vw, 9rem);
+  height: auto;
+  margin-inline: auto;
+}
+
+.charro-logo__link {
+  transition: opacity 0.2s, transform 0.2s;
+}
+
+.charro-logo__link:hover {
+  opacity: 0.92;
+  transform: scale(1.02);
+}
+
+.charro-logo__link:focus-visible {
+  outline: 2px solid var(--charro-gold);
+  outline-offset: 4px;
+  border-radius: 0.5rem;
+}
+
 .charro-auth__divider {
   width: 4rem;
   height: 2px;

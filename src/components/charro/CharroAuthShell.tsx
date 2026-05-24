@@ -1,8 +1,8 @@
 "use client";
 
-import Link from "next/link";
 import { motion } from "framer-motion";
 import type { ReactNode } from "react";
+import { CharroLogo } from "@/components/charro/CharroLogo";
 
 type CharroAuthShellProps = {
   title: string;
@@ -28,10 +28,7 @@ export function CharroAuthShell({
           className="w-full max-w-lg"
         >
           <header className="mb-8 text-center">
-            <Link href="/" className="inline-block">
-              <p className="charro-auth__eyebrow">Soy El Charro Mexican</p>
-              <h1 className="charro-auth__brand">El Charro González</h1>
-            </Link>
+            <CharroLogo priority />
             <div className="charro-auth__divider mx-auto mt-4" />
             <h2 className="charro-auth__title mt-6">{title}</h2>
             {subtitle && (
