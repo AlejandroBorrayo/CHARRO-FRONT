@@ -5,7 +5,17 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { jwtDecode } from "jwt-decode";
+import { normalizeWhatsApp } from "@/components/charro/charro-form-utils";
 import { register } from "@/services/user";
+
+function splitFullName(fullName: string) {
+  const parts = fullName.trim().split(/\s+/).filter(Boolean);
+  return {
+    first_name: parts[0] ?? "",
+    paternal_last_name: parts[1] ?? "",
+    maternal_last_name: parts.slice(2).join(" "),
+  };
+}
 
 interface InvitePayload {
   email: string;
@@ -79,9 +89,9 @@ export default function RegisterPage() {
 
     try {
       await register(invite, {
-        full_name: form.full_name,
+        ...splitFullName(form.full_name),
         email: form.email,
-        phone: form.telefono,
+        whatsapp: normalizeWhatsApp(form.telefono),
         password: form.password,
       });
       
