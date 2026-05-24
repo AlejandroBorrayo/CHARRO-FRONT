@@ -54,16 +54,18 @@ export function LoginForm() {
     }
 
     let logginFirstTime: boolean | undefined;
+    let role: string | null | undefined;
     for (let i = 0; i < 8; i++) {
       const session = await getSession();
       if (session?.user) {
         logginFirstTime = session.user.loggin_first_time;
+        role = session.user.role;
         break;
       }
       await new Promise((r) => setTimeout(r, 120));
     }
 
-    window.location.assign(getPostLoginPath(logginFirstTime));
+    window.location.assign(getPostLoginPath(logginFirstTime, role));
   };
 
   return (

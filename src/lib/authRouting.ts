@@ -2,9 +2,14 @@ export const LOGIN_PATH = "/";
 export const REGISTRO_PATH = "/registro";
 export const CUENTA_BIENVENIDA = "/cuenta/bienvenida";
 export const CUENTA_PASAPORTE = "/cuenta/pasaporte";
+export const CUENTA_ADMIN = "/cuenta/admin";
 
-/** `loggin_first_time: false` → bienvenida; si no, pasaporte. */
-export function getPostLoginPath(loggin_first_time?: boolean | null): string {
+/** Admin → panel; `loggin_first_time: false` → bienvenida; si no, pasaporte. */
+export function getPostLoginPath(
+  loggin_first_time?: boolean | null,
+  role?: string | null
+): string {
+  if (role === "admin") return CUENTA_ADMIN;
   return loggin_first_time === false ? CUENTA_BIENVENIDA : CUENTA_PASAPORTE;
 }
 

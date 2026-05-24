@@ -11,6 +11,7 @@ export interface UserCollectionInterface {
   readonly whatsapp: string;
   readonly password?: string;
   readonly role: string;
+  readonly no_passport?: string;
   readonly company_id?: string;
   readonly loggin_first_time?: boolean;
   readonly deleted: boolean;

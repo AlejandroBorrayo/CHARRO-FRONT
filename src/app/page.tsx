@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 export default async function HomePage() {
   const session = await getServerSession(authOptions);
   if (session) {
-    redirect(getPostLoginPath(session.user.loggin_first_time));
+    redirect(getPostLoginPath(session.user.loggin_first_time, session.user.role));
   }
 
   return <LoginForm />;
